@@ -4,7 +4,6 @@ function Fe = Compute_Fe_Force(f,N,e,coord)
 w = 1;
 wcoord = [coord(e); coord(e+1)];
 he = wcoord(2) - wcoord(1);
-N = 0.5*N;
 
 fPh = zeros(size(N,1),1);
 
