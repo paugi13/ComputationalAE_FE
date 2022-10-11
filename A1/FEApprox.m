@@ -38,27 +38,27 @@ N = 0.5*N;
 
 lambda = N(1, :).'*N(1, :)*w + N(2, :).'*N(2, :)*w;
 
-K = AssemblyK(COOR,CN,lambda, rho);
+K = AssemblyK(coord,CN,lambda, rho);
 
 %% F assembly
 
 nnodeE = 2;
 Ff = zeros(nnod,1);
 
-    for e=1:nelem
-        Fe = Compute_Fe_Force(f,N,e,coord);
-        for a = 1:nnodeE
-            A = CN(e,a);
-            Ff(A) = Ff(A) + Fe(a);
-        end
+for e=1:nelem
+    Fe = Compute_Fe_Force(f,N,e,coord);
+    for a = 1:nnodeE
+        A = CN(e,a);
+        Ff(A) = Ff(A) + Fe(a);
     end
-
-function [Fe] = Compute_Fe_Force(f,N);
-    he/2*((1/2*[(1-(1/sqrt(3))) (1+(1/sqrt(3)))])*(-s*x(i)^2)
-
-
-
 end
+
+N_1 = [0 1];
+
+Ff([size(Ff,1)-1 size(Ff,1)]) = Ff([size(Ff,1)-1 size(Ff,1)]) + N_1.'*b;
+F = Ff;
+
+
 
 
 

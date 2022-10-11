@@ -1,6 +1,7 @@
 function Fe = Compute_Fe_Force(f,N,e,coord)
 % Function to compute element forces Fe
 
+syms x
 w = 1;
 wcoord = [coord(e); coord(e+1)];
 he = wcoord(2) - wcoord(1);
@@ -10,7 +11,7 @@ fPh = zeros(size(N,1),1);
 sum = 0;
 for i=1:size(N,1)
     xPh = N(i,:)*wcoord;
-    fPh(i,1) = subst(f, x, xPh);
+    fPh(i,1) = subs(f, x, xPh);
     sum = sum + w*N(i,:).'*fPh(i);
 end
 
