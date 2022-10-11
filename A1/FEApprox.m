@@ -20,7 +20,8 @@ coord = linspace(x0, x1, nnod);
 
 CN = zeros(nelem, 2);
 
-for i=1:nnod
+% Connectivity matrix
+for i=1:nelem
     CN(i,1) = i;
     CN(i,2) = i+1;
 end
@@ -29,12 +30,34 @@ w = 1;
 xi1 = 1/sqrt(3);
 xi2 = -1/sqrt(3);
 
-N1 = [1-xi1, 1+xi1];
-N2 = [1-xi2, 1+xi2];
+%% K assembly
+N = zeros(2);
+N(1, :) = [1-xi1, 1+xi1];
+N(2, :) = [1-xi2, 1+xi2];
 
-lambda = N1.'*N1*w + N2.'*N2*w;
+lambda = N(1, :).'*N(1, :)*w + N(2, :).'*N(2, :)*w;
 
 K = AssemblyK(COOR,CN,lambda, rho);
+
+%% F assembly
+
+nnodeE = 2;
+Ff = zeros(nnod,1);
+
+    for e=1:nelem
+        Fe = Compute_Fe_Force(f,N,e,coord);
+        for a = 1:nnodeE
+            A = CN(e,a);
+            Ff(A) = Ff(A) + Fe(a);
+        end
+    end
+
+function [Fe] = Compute_Fe_Force(f,N);
+    he/2*((1/2*[(1-(1/sqrt(3))) (1+(1/sqrt(3)))])*(-s*x(i)^2)
+
+
+
+end
 
 
 
