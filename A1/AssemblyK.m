@@ -1,4 +1,4 @@
-function K = AssemblyK(COOR,CN,lambda)
+function K = AssemblyK(COOR,CN,lambda, rho)
 % COOR: Coordinate matrix
 % CN % Element connectivy matrix  ;
 nelem = size(CN,1) ; % Number of rows and columns SIZE
@@ -11,10 +11,11 @@ for e=1:nelem  % Loop over number of elements
     COOR_e = COOR(NODOSe) ;
     he = COOR_e(2)-COOR_e(1) ; % Size finite element
     % Elemental matrix
-    Ke = 1/he*[1 -1; -1 1] -lambda*[] ;  % ??????  
+    Ke = 1/he*[1 -1; -1 1] -lambda*rho ;  % ??????  
     % Assembly
     for a = 1:nnodeE
         for b = 1:nnodeE
+        % Same working principle as the aerospace structures' one.
             A = CN(e,a);
             B = CN(e,b);
             K(A,B) = K(A,B) + Ke(a,b);
