@@ -1,7 +1,7 @@
 function [u] = FE_Resolution(Ff,K,g,nnod)
 r = 1;
-l = 2:length(nnod);
+l = 2:nnod;
 dr = -g;
 dl = K(l,l)\(Ff(l)+K(l,r)*g);
-u = [dr,dl];
+u = [dr,dl'];
 end
