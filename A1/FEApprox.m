@@ -11,7 +11,17 @@ for i=1:length(n)
     coord(i, 1:length(coord_aux)) = coord_aux; 
 end
 
+%% Error calculus
+load('exactSolExp.mat');
+error = zeros(1, length(n));
+
+for i = 1:length(n)
+errorVector = ErrorCalculator(n(i), coord(i, 1:(n(i)+1)), u(i, 1:(n(i)+1)));
+error(1, i) = sqrt(max(errorVector));
+end
+
 %% Post-process
+% plot multiple solutions
 figure
 hold on
 plot(coord(1,1:(n(1)+1)), u(1,1:(n(1)+1)));
@@ -21,6 +31,16 @@ plot(coord(4,1:(n(4)+1)), u(4,1:(n(4)+1)));
 xlabel('x (m)');
 ylabel('u (m)');
 hold off
+
+% plot error
+figure
+semilogy(n, error, 'b');
+xlabel('Number of elements');
+ylabel('Error');
+grid on
+title('Error vs number of elements');
+
+
 
 
 
