@@ -1,7 +1,7 @@
 clc;
 clear; close all;
 
-n = [5 10 20 40];
+n = [5 10 15 20 25 30 35 40];
 u = zeros(length(n), n(length(n))+1);
 coord = zeros(length(n), n(length(n))+1);
 
@@ -30,15 +30,17 @@ plot(coord(3,1:(n(3)+1)), u(3,1:(n(3)+1)));
 plot(coord(4,1:(n(4)+1)), u(4,1:(n(4)+1)));
 xlabel('x (m)');
 ylabel('u (m)');
+title('Finite element approximations');
+legend('nElem = 5', 'nElem = 10', 'nElem = 20', 'nElem = 40', 'location', 'northwest');
 hold off
 
 % plot error
 figure
 semilogy(n, error, 'b');
 xlabel('Number of elements');
-ylabel('Error');
+ylabel('log(\epsilon_{max})');
 grid on
-title('Error vs number of elements');
+title('Total error vs number of elements');
 
 
 
