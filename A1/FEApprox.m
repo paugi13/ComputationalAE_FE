@@ -34,9 +34,15 @@ title('Finite element approximations');
 legend('nElem = 5', 'nElem = 10', 'nElem = 20', 'nElem = 40', 'location', 'northwest');
 hold off
 
-% plot error
+% element size vector
 
-% log plot also possible comparing log(error) with log(elementSize)
+elSizeVector = zeros(length(n), 1);
+
+for i=1:length(elSizeVector)
+    elSizeVector(i, 1) = coord(i, 2) - coord(i,1);
+end
+
+% plot error vs nElement
 figure
 plot(log(n), log(error), 'b');
 xlabel('log(nElements)');
@@ -44,7 +50,12 @@ ylabel('log(\epsilon_{max})');
 grid on
 title('Total error vs number of elements');
 
-
-
+% plot error vs element size
+figure
+plot(log(elSizeVector), log(error), 'b');
+xlabel('log(elementSize)');
+ylabel('log(\epsilon_{max})');
+grid on
+title('Total error vs element size');
 
 
