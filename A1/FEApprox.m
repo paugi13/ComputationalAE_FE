@@ -1,7 +1,7 @@
 clc;
 clear; close all;
 
-n = [5 10 15 20 25 30 35 40];
+n = [5 10 20 40];
 u = zeros(length(n), n(length(n))+1);
 coord = zeros(length(n), n(length(n))+1);
 
@@ -35,9 +35,11 @@ legend('nElem = 5', 'nElem = 10', 'nElem = 20', 'nElem = 40', 'location', 'north
 hold off
 
 % plot error
+
+% log plot also possible comparing log(error) with log(elementSize)
 figure
-semilogy(n, error, 'b');
-xlabel('Number of elements');
+plot(log(n), log(error), 'b');
+xlabel('log(nElements)');
 ylabel('log(\epsilon_{max})');
 grid on
 title('Total error vs number of elements');
