@@ -55,13 +55,10 @@ for e=1:nelem
     end
 end
 
-% coord_end = [coord(length(coord)-1); coord(length(coord))];
 
+% Max(xi) = 1
 N_1 = [0 1];
 Ff([size(Ff,1)-1 size(Ff,1)]) = Ff([size(Ff,1)-1 size(Ff,1)]) + N_1.'*b;
-
-% N_L = N(1, :)*coord_end + N(2,:)*coord_end;
-% Ff(size(Ff,1)) = Ff(size(Ff,1)) + N_L.'*b;
 
 F = Ff;
 
