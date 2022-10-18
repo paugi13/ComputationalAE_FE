@@ -14,10 +14,12 @@ end
 %% Error calculus
 load('exactSolExp.mat');
 error = zeros(1, length(n));
+errorDer = zeros(1, length(n));
 
 for i = 1:length(n)
-errorVector = ErrorCalculator(n(i), coord(i, 1:(n(i)+1)), u(i, 1:(n(i)+1)));
+[errorVector, errorDerVector] = ErrorCalculator(n(i), coord(i, 1:(n(i)+1)), u(i, 1:(n(i)+1)));
 error(1, i) = sqrt(max(errorVector));
+errorDer(1, i) = sqrt(max(errorDerVector));
 end
 
 %% Post-process
@@ -32,7 +34,9 @@ xlabel('x (m)');
 ylabel('u (m)');
 title('Finite element approximations');
 legend('nElem = 5', 'nElem = 10', 'nElem = 20', 'nElem = 40', 'location', 'northwest');
+grid on
 hold off
+
 
 % element size vector
 
@@ -45,17 +49,23 @@ end
 % plot error vs nElement
 figure
 plot(log(n), log(error), 'b');
+hold on
+plot(log(n), log(errorDer), 'r');
 xlabel('log(nElements)');
 ylabel('log(\epsilon_{max})');
 grid on
 title('Total error vs number of elements');
+hold off
+
 
 % plot error vs element size
 figure
 plot(log(elSizeVector), log(error), 'b');
+hold on
+plot(log(elSizeVector), log(errorDer), 'r');
 xlabel('log(elementSize)');
 ylabel('log(\epsilon_{max})');
 grid on
 title('Total error vs element size');
-
+hold off
 
