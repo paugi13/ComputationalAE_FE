@@ -1,4 +1,4 @@
-function [Fe, eps, rho] = CompFeForceNL(e, d_k, COOR, CN, AreaFUN, StressFUN)
+function [Fe, eps, sigma] = CompFeForceNL(e, d_k, COOR, CN, AreaFUN, StressFUN)
 
 % Define N for quadratic type. 
 xi1 = 1/sqrt(3);
@@ -12,13 +12,13 @@ B = 0.5*[-1 1];
 elCOOR = [COOR(e) COOR(e+1)];
 % meanX = (COOR(e) + COOR(e+1))/2;
 eps = B*d_k(CN(e,:));
-rho = StressFUN(eps);
+sigma = StressFUN(eps);
 
 sum = 0;
 for i=1:size(N,1)
     xPh = N(i,:)*elCOOR;
     A = AreaFUN(xPh);
-    sum = sum + B.'*A*rho;    % 2x1
+    sum = sum + B.'*A*sigma;    % 2x1
 end
 Fe = sum;
 

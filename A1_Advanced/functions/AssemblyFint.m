@@ -10,7 +10,7 @@ nnodeE = 2;
 Ff = zeros(size(COOR, 2), 1);
 
 for e=1:size(CN, 1)
-    [Fe, eps, rho] = CompFeForceNL(e, d_k, COOR, CN, AreaFUN, StressFUN);
+    [Fe, eps, sigma] = CompFeForceNL(e, d_k, COOR, CN, AreaFUN, StressFUN);
     for a = 1:nnodeE
         A = CN(e,a);
         Ff(A) = Ff(A) + Fe(a);
@@ -18,7 +18,7 @@ for e=1:size(CN, 1)
 end
 Residual = Ff;
 STRAIN = eps;
-STRESS = rho;
+STRESS = sigma;
 
 end
 
