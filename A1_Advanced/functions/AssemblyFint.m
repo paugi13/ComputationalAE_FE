@@ -16,7 +16,6 @@ for e=1:size(CN, 1)
         Ff(A) = Ff(A) + Fe(a);
     end
 end
-
 Residual = Ff;
 STRAIN = eps;
 STRESS = rho;
