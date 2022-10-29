@@ -110,9 +110,9 @@ hold off
 
 % plot error vs element size
 figure
-plot(log(elSizeVector), log(error), 'b');
+plot(log10(elSizeVector), log10(error), 'b');
 hold on
-plot(log(elSizeVector), log(errorDer), 'r');
+plot(log10(elSizeVector), log10(errorDer), 'r');
 xlabel('log(elementSize)');
 ylabel('log(\epsilon_{max})');
 grid on
