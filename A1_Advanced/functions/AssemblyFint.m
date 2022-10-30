@@ -7,7 +7,7 @@ function [Residual,STRAIN,STRESS] = AssemblyFint(COOR,CN,d_k,StressFUN,...
 nnodeE = 2;
 
 %% K assembly
-Ff = zeros(size(COOR, 2), 1);
+Ff = zeros(size(COOR, 1), 1);
 
 for e=1:size(CN, 1)
     [Fe, eps, sigma] = CompFeForceNL(e, d_k, COOR, CN, AreaFUN, StressFUN);
