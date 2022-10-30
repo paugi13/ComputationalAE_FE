@@ -13,9 +13,9 @@ for e=1:nelem  % Loop over number of elements
     Be = 1/he*[-1 1];
     % Young Modulus & Area Calculation
     epsilon_e = Be*d_k(NODOSe);
-    Ee = subs(DerStressFUN,epsilon_e);
-    A1 = subs(AreaFUN,COOR_e(1));
-    A2 = subs(AreaFUN,COOR_e(2));
+    Ee = DerStressFUN(epsilon_e);
+    A1 = AreaFUN(COOR_e(1));
+    A2 = AreaFUN(COOR_e(2));
     Ae = (A1+A2)/2;
     % Elemental matrix
     Ke = Ee*Ae/he*[1 -1; -1 1]; 
