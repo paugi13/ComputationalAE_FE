@@ -11,9 +11,9 @@ addpath(genpath(fileparts(mfilename('fullpath'))));
 % ------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
-NELEM = 20 ;  % Number of elements
-nsteps = 20 ;  % Number of steps
-stepsPOST = 1:5:nsteps; % Steps to post-process
+NELEM = 5 ;  % Number of elements
+nsteps = 5 ;  % Number of steps
+stepsPOST = 1:5; % Steps to post-process
 
 A0 = 1e-2; %m  % Reference AREA
 E0 = 10 ; % MPa  % Reference Young's Modulus
