@@ -9,8 +9,11 @@ nnodeE = 2;
 %% K assembly
 Ff = zeros(size(COOR, 1), 1);
 
+eps = zeros(size(CN,1), 1);
+sigma = zeros(size(CN,1), 1);
+
 for e=1:size(CN, 1)
-    [Fe, eps, sigma] = CompFeForceNL(e, d_k, COOR, CN, AreaFUN, StressFUN);
+    [Fe, eps(e, 1), sigma(e, 1)] = CompFeForceNL(e, d_k, COOR, CN, AreaFUN, StressFUN);
     for a = 1:nnodeE
         A = CN(e,a);
         Ff(A) = Ff(A) + Fe(a);
