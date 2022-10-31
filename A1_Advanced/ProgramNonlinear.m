@@ -11,7 +11,7 @@ addpath(genpath(fileparts(mfilename('fullpath'))));
 % ------
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%55
-NELEM = 5 ;  % Number of elements
+NELEM = 5;  % Number of elements
 nsteps = 5 ;  % Number of steps
 stepsPOST = 1:5; % Steps to post-process
 
@@ -26,8 +26,10 @@ stressFUN = @(strain) (sigma_0*(1-exp(-E0/sigma_0*strain))) ;  % Constitutive eq
 DerStressFUN = @(strain) (E0*exp(-E0/sigma_0*strain)) ;  % Tangent modulus (Derivative of the stress with respect to the strain)
 r = [1,NELEM+1]  ; % Indexes Prescribed DOF  %
 uEND = @(t) (t/T*um);  %  Non-zero prescribed displacement, as a function of time
+
+% Newton - Raphson input data. 
 TOL_residual = 1e-6;  % Convergence tolerance for the Newton-Raphson
-MAXITER = 50 ;  % Maximum number of iterations  for the Newton-Raphson
+MAXITER = 50;  % Maximum number of iterations  for the Newton-Raphson
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%% END INPUTS % ------------------------------------------
@@ -35,7 +37,7 @@ MAXITER = 50 ;  % Maximum number of iterations  for the Newton-Raphson
 nnode = NELEM+1 ;
 COOR = linspace(0,L,nnode)' ;
 CN = [(1:(nnode-1))',(2:nnode)'] ;
-l = setdiff([1:nnode],r) ;
+l = setdiff(1:nnode,r) ;  % define non prescribed displacements
 
 d = zeros(nnode,1) ;  % Displacement at time tn
 
@@ -55,8 +57,9 @@ for istep=1:nsteps
     t = TIMES(istep) ;  % Time
     d(nnode) = uEND(t) ;
     
-    disp(['Number of  step = ',num2str(istep), ', Time = ',num2str(t),', uEND =  ',num2str( uEND(t)) ])
-    disp('********************************************************************')
+    disp(['Number of  step = ',num2str(istep), ', Time = ',num2str(t),...
+        ', uEND =  ',num2str( uEND(t)) ])
+    disp('***************************************************************')
     % Boundary conditions
     %-------------------
     % Compute the vector of internal forces = residual
@@ -68,10 +71,11 @@ for istep=1:nsteps
     k = 0 ; % Number of iteration
     while  k <= MAXITER
         % ASsembly the residual vector (= internal forces)
-        disp('YOU MUST PROGRAM FUNCTION AssemblyFint...')
         [Residual,STRAIN,STRESS] = AssemblyFint(COOR,CN,d_k,stressFUN,AreaFUN) ;
         normRESIDUAL = norm(Residual(l)) ; % Euclidean norm residual
-        disp(['k = ',num2str(k),' res=',num2str(normRESIDUAL),', MAX strain = ',num2str(max(STRAIN)),', MAX stress = ',num2str(max(STRESS))])
+        disp(['k = ',num2str(k),' res=',num2str(normRESIDUAL),...
+            ', MAX strain = ',num2str(max(STRAIN)),', MAX stress = ',...
+            num2str(max(STRESS))])
         if normRESIDUAL < TOL_residual
             % Convergence
             d = d_k ;
@@ -82,7 +86,6 @@ for istep=1:nsteps
         % Let us calculate the new displacement vector
         
         % Compute the Jacobian of the system of equations
-         disp('YOU MUST PROGRAM FUNCTION AssemblyKnon...')
         K = AssemblyKnon(COOR,CN,d_k,AreaFUN,DerStressFUN);
         Delta_d_l = -K(l,l)\Residual(l) ;
         d_k(l) = d_k(l) + Delta_d_l;
@@ -114,13 +117,12 @@ hplot = zeros(nsteps_plot,1) ;
 LegendPlot = cell(nsteps_plot,1) ;
 for i = 1:nsteps_plot
     hplot(i) =  plot(COOR_gauss,STRESS_GLO(:,stepsPOST(i))) ;
-    LegendPlot{i} = ['Time = ',num2str(TIMES(stepsPOST(i))),'; NELEM =',num2str(NELEM),'; NSTEP = ',num2str(nsteps)] ;
+    LegendPlot{i} = ['Time = ',num2str(TIMES(stepsPOST(i))),'; NELEM =',...
+        num2str(NELEM),'; NSTEP = ',num2str(nsteps)] ;
 end
 
-legend(hplot,LegendPlot)
+legend(hplot,LegendPlot, 'location', 'south');
 
-legend('off')
-legend
 
 % Evolution of displacements along time
 % --------------------------------------------
@@ -133,15 +135,11 @@ hplot = zeros(nsteps_plot,1) ;
 LegendPlot = cell(nsteps_plot,1) ;
 for i = 1:nsteps_plot
     hplot(i) =  plot(COOR,d_GLO(:,stepsPOST(i))) ;
-    LegendPlot{i} = ['Time = ',num2str(TIMES(stepsPOST(i))),'; NELEM =',num2str(NELEM),'; NSTEP = ',num2str(nsteps)] ;
+    LegendPlot{i} = ['Time = ',num2str(TIMES(stepsPOST(i))),'; NELEM =',...
+        num2str(NELEM),'; NSTEP = ',num2str(nsteps)] ;
 end
 
-legend(hplot,LegendPlot)
-
-legend('off')
-legend
-
-
+legend(hplot,LegendPlot, 'location', 'northwest');
 
 % Location of maximum stress
 
@@ -151,14 +149,9 @@ COOR_max_stress= COOR_gauss(indELEM) ;
 figure(3)
 hold on
 xlabel('Time (s)')
-ylabel([['Maximum Stress (MPa), at x= ',num2str(COOR_max_stress)]]) ;
-for i = 1:nsteps_plot
-    h =   plot(TIMES,STRESS_GLO(indELEM,:)) ;
-end
+ylabel(['Maximum Stress (MPa), at x= ',num2str(COOR_max_stress)]) ;
 
-legend(h,['NELEM =',num2str(NELEM),'; NSTEP = ',num2str(nsteps)])
+h =   plot(TIMES,STRESS_GLO(indELEM,:)) ;
 
-legend('off')
-legend
-
-
+legend(h,['NELEM =',num2str(NELEM),'; NSTEP = ',num2str(nsteps)], ...
+    'location', 'east');
