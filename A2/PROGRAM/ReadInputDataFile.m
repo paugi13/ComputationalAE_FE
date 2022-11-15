@@ -1,5 +1,5 @@
 function [COOR,CN,TypeElement,TypeElementB, ConductMglo,  rnod,dR,...  
-    qFLUXglo,CNb,fNOD,NameFileMesh]  = ReadInputDataFile(NAME_INPUT_DATA) ; 
+    qFLUXglo,CNb,fNOD,NameFileMesh]  = ReadInputDataFile(NAME_INPUT_DATA)  
 
 
 % OUTPUTS 
