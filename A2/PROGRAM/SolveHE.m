@@ -1,4 +1,4 @@
-function [d qheatGLO posgp] = SolveHE(K,Fs,Fbnd,dR,rnod,COOR,CN,TypeElement,ConductMglo) ; 
+function [d, qheatGLO, posgp] = SolveHE(K,Fs,Fbnd,dR,rnod,COOR,CN,TypeElement,ConductMglo)
 % This function returns  n returns the (nnode x 1) vector of nodal temperatures (d),
 % as well as the vector formed by the heat flux vector at all gauss
 %%% points  (qheatGLO)
@@ -15,21 +15,25 @@ nnode = size(COOR,1); ndim = size(COOR,2); nelem = size(CN,1); nnodeE = size(CN,
 F = Fs + Fbnd ; 
 % Set of nodes at which temperature is unknown 
 lnod = 1:nnode ; 
-lnod(rnod) = [] ;
+lnod(rnod) = [] ;   % takes out restricted nodes. 
+
 % dL =  Kll^{-1}*(Fl .Klr*dR)
-if ~any(K)
-    warning('You must code the equation dL =  Kll^{-1}*(Fl -Klr*dR) ')
-    dL = zeros(size(lnod));   
-end
- 
+% if ~any(K)
+% %     warning('You must code the equation dL =  Kll^{-1}*(Fl -Klr*dR) ')
+%     dL = zeros(size(lnod));   
+% end
+dL = K(lnod,lnod)\(F(lnod)+K(lnod,rnod)*dR);
+
 % Vector of   temperatures 
 d = zeros(nnode,1) ; 
-d(lnod)= dL ; 
+d(lnod) = dL ; 
 d(rnod) = dR ;
 
-%%%% COmputation of heat flux vector at each gauss point 
+%%%% COmputation of heat flux vector at each gauss point (vector)
 disp('Computation of heat flux vector at each gauss point and elements')
-ngaus = size(posgp,2) ; ; qheatGLO = zeros(ngaus*ndim,nelem); 
+
+% ngaus = 4 and ndim = 2 gives 8 heat flux values. 
+ngaus = size(posgp,2) ; qheatGLO = zeros(ngaus*ndim,nelem); 
 % Computing this array is not mandatory.... 
-[qheatGLO posgp]= HeatFlux(COOR,CN,TypeElement,ConductMglo,d) ; 
+[qheatGLO, posgp]= HeatFlux(COOR,CN,TypeElement,ConductMglo,d) ; 
 
