@@ -1,4 +1,4 @@
-function Fbnd = ComputeFbnd(COOR,CNb,TypeElementB, qFLUXglo) ; 
+function Fbnd = ComputeFbnd(COOR,CNb,TypeElementB, qFLUXglo)
 % This subroutine   returns the  boundary   contribution (Fs)    to the
 % global flux vector. Inputs
 % --------------
