@@ -1,9 +1,8 @@
 function [weig,posgp,shapef,dershapef] = Quadrilateral4NInPoints 
 % Four integration points
-weig = [1 1 1 1];
+weig = [1 1 1 1];   % length(weig) can define number of gauss points.
 posgp = 1/sqrt(3)*[-1 +1 +1 -1
                     -1 -1 +1 +1];   % first row: xi. second row: eta. 
-
 ndim = 2; nnodeE = 4;
 ngaus = length(weig);
 shapef = zeros(ngaus,nnodeE);
