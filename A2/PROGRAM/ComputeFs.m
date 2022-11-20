@@ -1,4 +1,4 @@
-function Fs = ComputeFs(COOR,CN,TypeElement, fNOD) ; 
+function Fs = ComputeFs(COOR,CN,TypeElement, fNOD) 
 % This subroutine   returns the  heat source contribution (Fs)    to the
 % global flux vector. Inputs
 % --------------
@@ -17,7 +17,22 @@ function Fs = ComputeFs(COOR,CN,TypeElement, fNOD) ;
 % Dimensions of the problem 
 nnode = size(COOR,1); ndim = size(COOR,2); nelem = size(CN,1); nnodeE = size(CN,2) ;     
 
-  
 Fs = zeros(nnode,1) ;  
 %......
-warning('You must program the assembly of the flux vector  Fs !!')
+% warning('You must program the assembly of the flux vector  Fs !!')
+fe = -20;     % internal sources. 
+
+[weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand);
+XeT = zeros(nnodeE,ndim);
+
+for e=1:nelem  
+    for j = 1:nnodeE
+        XeT(j, :) = COOR(CN(e,j), :);    % transposed matrix
+    end
+    Xe = XeT';
+    Fse = ComputeFseVector(fe,weig,shapef,dershapef,Xe);
+    for a = 1:nnodeE
+        A = CN(e,a);
+        Fs(A) = Ff(A) + Fse(a);
+    end
+end
