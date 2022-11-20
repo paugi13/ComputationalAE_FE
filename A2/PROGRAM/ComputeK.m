@@ -1,4 +1,4 @@
-function K = ComputeK(COOR,CN,TypeElement, ConductMglo) ;
+function K = ComputeK(COOR,CN,TypeElement, ConductMglo)
 %%%%
 % This subroutine   returns the global conductance matrix K (nnode x nnode)
 % Inputs
@@ -17,9 +17,6 @@ function K = ComputeK(COOR,CN,TypeElement, ConductMglo) ;
      load('tmp1.mat')
  end
  
- 
- 
- 
 %% COMPLETE THE CODE ....
 %warning('You must program the assembly of the conductance matrix K !!')
 
@@ -34,17 +31,24 @@ nnodeE = size(CN,2) ; %Number of nodes per element
 TypeIntegrand = 'K'; 
 [weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand) ; 
 
-%
-
 % Assembly of matrix K
 % ----------------
-K = sparse(nnode,nnode) ;
-% ......
-% for e = 1:nelem 
-   % ......
-
-
-
-
-% end
+K = sparse(nnode,nnode);
+XeT = zeros(nnodeE,ndim);
+for e = 1:nelem 
+   for j = 1:nnodeE
+       XeT(j, :) = COOR(CN(e,j), :);    % transposed matrix
+   end
+   Xe = XeT';   % in XeT the coordinates from the element's nodes are stored.
+   ConductM = ConductMglo(:,:,e);
+   Ke = ComputeKeMatrix(ConductM,weig,dershapef,Xe);
+   for a = 1:nnodeE
+        for b = 1:nnodeE
+        % Same working principle as the aerospace structures' one.
+            A = CN(e,a);
+            B = CN(e,b);
+            K(A,B) = K(A,B) + Ke(a,b);
+        end
+   end
+end
 
