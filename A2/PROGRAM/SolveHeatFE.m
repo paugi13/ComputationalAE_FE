@@ -1,5 +1,5 @@
 function [d,qheatGLO,posgp] = SolveHeatFE(COOR,CN,TypeElement,TypeElementB, ConductMglo,  rnod,dR,...  
-    qFLUXglo,CNb,fNOD)  ; 
+    qFLUXglo,CNb,fNOD)   
 
 %%% This function returns the (nnode x 1) vector of nodal temperatures (d),
 %%% as well as the vector formed by the heat flux vector at all gauss
@@ -51,5 +51,5 @@ Fbnd = ComputeFbnd(COOR,CNb,TypeElementB, qFLUXglo) ;
 
 % D) Solving for the vector of unknown temperatures 
 disp('Solving...')
-[d qheatGLO posgp] = SolveHE(K,Fs,Fbnd,dR,rnod,COOR,CN,TypeElement,ConductMglo) ; 
+[d, qheatGLO, posgp] = SolveHE(K,Fs,Fbnd,dR,rnod,COOR,CN,TypeElement,ConductMglo) ; 
 
