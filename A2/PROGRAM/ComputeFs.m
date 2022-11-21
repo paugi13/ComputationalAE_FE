@@ -21,7 +21,7 @@ Fs = zeros(nnode,1) ;
 %......
 % warning('You must program the assembly of the flux vector  Fs !!')
 fe = -20;     % internal sources. 
-
+TypeIntegrand = 'K';
 [weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand);
 XeT = zeros(nnodeE,ndim);
 
@@ -33,6 +33,6 @@ for e=1:nelem
     Fse = ComputeFseVector(fe,weig,shapef,dershapef,Xe);
     for a = 1:nnodeE
         A = CN(e,a);
-        Fs(A) = Ff(A) + Fse(a);
+        Fs(A) = Fs(A) + Fse(a);
     end
 end
