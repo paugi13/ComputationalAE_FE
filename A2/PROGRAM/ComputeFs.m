@@ -20,13 +20,14 @@ nnode = size(COOR,1); ndim = size(COOR,2); nelem = size(CN,1); nnodeE = size(CN,
 Fs = zeros(nnode,1) ;  
 %......
 % warning('You must program the assembly of the flux vector  Fs !!')
-fe = -20;     % internal sources. 
+     % internal sources. 
 TypeIntegrand = 'K';
 [weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand);
 XeT = zeros(nnodeE,ndim);
 
 for e=1:nelem  
     for j = 1:nnodeE
+        fe = fNOD(CN(e,j));
         XeT(j, :) = COOR(CN(e,j), :);    % transposed matrix
     end
     Xe = XeT';
