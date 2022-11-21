@@ -1,4 +1,4 @@
-function FbndE = ComputeFbndVector(qFLUXe,weig,shapef,dershapef,Xe) ; 
+function FbndE = ComputeFbndVector(qFLUXe,weig,shapef,dershapef,Xe)  
 % Given 
 % qFLUXe: Nodal values of the prescribed flux at boundary element e (nnodeEb x1)
 % weig :   Vector of Gauss weights (1xngaus)
