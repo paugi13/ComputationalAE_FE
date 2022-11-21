@@ -20,13 +20,22 @@ auxQ = zeros(2,1);
 for e = 1:nelem
     % Define d_el vector
     d_el = zeros(nnodeE, 1);
+    XeT = zeros(nnodeE,ndim);
     for j = 1:nnodeE
         d_el(j) = d(CN(e, j), 1);
+        XeT(j, :) = COOR(CN(e,j), :);
+        Xe = XeT';
     end
     % Make B*d_el products
-    for g = 1:nnodeE
-        auxQ(1,1) = dershapef(1,:,g)*d_el;
-        auxQ(2,1) = dershapef(2,:,g)*d_el;
+    for g = 1:ngaus        % for every point of gauss
+        BeXi = dershapef(:,:,g) ; 
+        % Jacobian Matrix 
+        Je = Xe*BeXi' ; 
+        % JAcobian 
+        % Matrix of derivatives with respect to physical coordinates 
+        Be = inv(Je)'*BeXi ; 
+        auxQ(1,1) = Be(1,:)*d_el;
+        auxQ(2,1) = Be(2,:)*d_el;
         auxQ = ConductMglo(:,:,e)*auxQ;
         qheatGLO(2*g-1, e) = auxQ(1);
         qheatGLO(2*g, e) = auxQ(2);
