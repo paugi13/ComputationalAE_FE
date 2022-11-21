@@ -9,7 +9,8 @@ function [d, qheatGLO, posgp] = SolveHE(K,Fs,Fbnd,dR,rnod,COOR,CN,TypeElement,Co
 % rnod = Set of nodes at which temperature is prescribed 
 % dR = Vector of prescribed displacements 
 % ----------------------
-nnode = size(COOR,1); ndim = size(COOR,2); nelem = size(CN,1); nnodeE = size(CN,2) ;     posgp=[] ;
+nnode = size(COOR,1); 
+% ndim = size(COOR,2); nelem = size(CN,1); nnodeE = size(CN,2) ;     posgp=[] ;
 % Solution of the system of FE equation
 % Right-hand side 
 F = Fs + Fbnd ; 
@@ -33,7 +34,6 @@ d(rnod) = dR ;
 disp('Computation of heat flux vector at each gauss point and elements')
 
 % ngaus = 4 and ndim = 2 gives 8 heat flux values. 
-ngaus = size(posgp,2) ; qheatGLO = zeros(ngaus*ndim,nelem); 
-% Computing this array is not mandatory.... 
+% ngaus = size(posgp,2) ; qheatGLO = zeros(ngaus*ndim,nelem); 
 [qheatGLO, posgp]= HeatFlux(COOR,CN,TypeElement,ConductMglo,d) ; 
 

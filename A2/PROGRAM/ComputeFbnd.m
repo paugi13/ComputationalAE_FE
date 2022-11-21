@@ -23,7 +23,8 @@ nnode = size(COOR,1);  nelemB = size(CNb,1); nnodeEb = size(CNb,2) ;
 
 % Shape function routines (for calculating shape functions and derivatives)
 TypeIntegrand = 'RHS'; % Right-hand side vector
-[weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElementB,nnodeEb,TypeIntegrand) ; 
+[weig,~,shapef,dershapef] = ComputeElementShapeFun(TypeElementB,nnodeEb,...
+    TypeIntegrand) ; 
 
 % Assembly of vector Fbnd
 % ----------------

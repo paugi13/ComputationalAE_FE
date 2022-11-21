@@ -17,4 +17,4 @@ dershapef = zeros(ndim,nnodeE,ngaus);
 end
 
 % shapedef contains Ne vectors. 
-% dershapedef contains Be matrices. 
+% dershapedef contains Be matrices in element frame. 

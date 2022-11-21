@@ -4,14 +4,13 @@ function [qheatGLO, posgp]= HeatFlux(COOR,CN,TypeElement,ConductMglo,d)
 
 % Quadrature and shape functions
 
-nnode = size(COOR,1);  % Number of nodes
 ndim = size(COOR,2);   % Spatial Dimension of the problem  (2 or 3)
 nelem = size(CN,1);   % Number of elements 
 nnodeE = size(CN,2) ; %Number of nodes per element 
 
 TypeIntegrand = 'K';
 
-[weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,...
+[weig,posgp,~,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,...
     TypeIntegrand) ; 
 ngaus = length(weig);
 qheatGLO = zeros(ngaus*ndim,nelem); 

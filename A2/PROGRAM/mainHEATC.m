@@ -1,5 +1,5 @@
 clc
-clear all
+clear;
 % "Template" Finite Element Program for Heat Conduction Problems
 % ECA.
 % Technical University of Catalonia
