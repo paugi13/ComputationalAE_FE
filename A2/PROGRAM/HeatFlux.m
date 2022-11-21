@@ -31,7 +31,6 @@ for e = 1:nelem
         BeXi = dershapef(:,:,g) ; 
         % Jacobian Matrix 
         Je = Xe*BeXi' ; 
-        % JAcobian 
         % Matrix of derivatives with respect to physical coordinates 
         Be = inv(Je)'*BeXi ; 
         auxQ(1,1) = Be(1,:)*d_el;
