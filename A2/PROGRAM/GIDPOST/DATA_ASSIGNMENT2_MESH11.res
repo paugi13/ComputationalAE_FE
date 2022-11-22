@@ -9,13 +9,13 @@ Values
 1 0.000000
 2 0.000000
 3 0.000000
-4 -1.667570
+4 -1.578320
 End Values
 Result  "Heat flux (W/m)" "Load Analysis" 1 Vector OnGaussPoints "GPset"
 ComponentNames "qx" "qy"
 Values
-1 -2.519444 21.714588
- 5.428647 21.714588
- 6.367682 3.940336
- 0.985084 3.940336
+1 -2.384600 20.552399
+ 5.138100 20.552399
+ 6.026877 3.729444
+ 0.932361 3.729444
 End Values

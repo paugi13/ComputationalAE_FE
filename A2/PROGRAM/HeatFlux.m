@@ -35,7 +35,6 @@ for e = 1:nelem
         auxQ = Be*d_el;
         auxQ = -ConductMglo(:,:,e)*auxQ;
         qheatGLO([2*g-1 2*g], e) = auxQ;
-
     end
 end
 
