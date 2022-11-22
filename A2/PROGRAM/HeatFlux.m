@@ -14,7 +14,7 @@ TypeIntegrand = 'K';
     TypeIntegrand) ; 
 ngaus = length(weig);
 qheatGLO = zeros(ngaus*ndim,nelem); 
-auxQ = zeros(2,1);
+% auxQ = zeros(2,1);
 
 for e = 1:nelem
     % Define d_el vector
@@ -23,22 +23,23 @@ for e = 1:nelem
     for j = 1:nnodeE
         d_el(j) = d(CN(e, j), 1);
         XeT(j, :) = COOR(CN(e,j), :);
-        Xe = XeT';
     end
     % Make B*d_el products
+    Xe = XeT';
     for g = 1:ngaus        % for every point of gauss
         BeXi = dershapef(:,:,g) ; 
         % Jacobian Matrix 
         Je = Xe*BeXi' ; 
         % Matrix of derivatives with respect to physical coordinates 
         Be = inv(Je)'*BeXi ; 
-        auxQ(1,1) = Be(1,:)*d_el;
-        auxQ(2,1) = Be(2,:)*d_el;
+        auxQ = Be*d_el;
         auxQ = -ConductMglo(:,:,e)*auxQ;
-        qheatGLO(2*g-1, e) = auxQ(1);
-        qheatGLO(2*g, e) = auxQ(2);
+        qheatGLO([2*g-1 2*g], e) = auxQ;
+
     end
 end
 
 end
-
+%         auxQ(1,1) = Be(1,:)*d_el;
+%         auxQ(2,1) = Be(2,:)*d_el;
+%         qheatGLO(2*g, e) = auxQ(2);

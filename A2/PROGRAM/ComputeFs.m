@@ -22,15 +22,20 @@ Fs = zeros(nnode,1) ;
 % warning('You must program the assembly of the flux vector  Fs !!')
      % internal sources. 
 TypeIntegrand = 'K';
-[weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand);
+[weig,~,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand);
 XeT = zeros(nnodeE,ndim);
 
 for e=1:nelem  
     for j = 1:nnodeE
-        fe = fNOD(CN(e,j));
         XeT(j, :) = COOR(CN(e,j), :);    % transposed matrix
     end
     Xe = XeT';
+    CNloc = CN( e , : ) ;
+% Source f u n c t i o n evaluated at the nodes of element " e "
+    fe = fNOD ( CNloc ) ;
+% Coo rdinates of the nodes of element " e "
+%     Xe = COOR( CNloc , : )' ;
+    
     Fse = ComputeFseVector(fe,weig,shapef,dershapef,Xe);
     for a = 1:nnodeE
         A = CN(e,a);

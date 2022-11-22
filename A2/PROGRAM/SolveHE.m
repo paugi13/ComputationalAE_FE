@@ -19,12 +19,12 @@ lnod = 1:nnode ;
 lnod(rnod) = [] ;   % takes out restricted nodes. 
 
 % dL =  Kll^{-1}*(Fl .Klr*dR)
-% if ~any(K)
-% %     warning('You must code the equation dL =  Kll^{-1}*(Fl -Klr*dR) ')
-%     dL = zeros(size(lnod));   
-% end
-dL = K(lnod,lnod)\(F(lnod)+K(lnod,rnod)*dR);
+if ~any(K)
+%     warning('You must code the equation dL =  Kll^{-1}*(Fl -Klr*dR) ')
+    dL = zeros(size(lnod));   
 
+end
+    dL = K(lnod,lnod)\(F(lnod)-K(lnod,rnod)*dR);
 % Vector of   temperatures 
 d = zeros(nnode,1) ; 
 d(lnod) = dL ; 

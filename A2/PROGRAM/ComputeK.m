@@ -29,7 +29,8 @@ nnodeE = size(CN,2) ; %Number of nodes per element
 
 % Determine Gauss weights, shape functions and derivatives  
 TypeIntegrand = 'K'; 
-[weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand) ; 
+[weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,...
+    TypeIntegrand) ; 
 
 % Assembly of matrix K
 % ----------------
