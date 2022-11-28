@@ -23,11 +23,14 @@ for e = 1:nelem
     Xe = COOR(CNloc,:)' ;     % Computation of elemental stiffness matrix
     Ke = ComputeKeMatrix(celas,weig,dershapef,Xe) ;
     
-    for a = 1:nnodeE
-        for b = 1:nnodeE
-        % Same working principle as the aerospace structures' one.
-            A = CN(e,a);
-            B = CN(e,b);
+    for anod = 1:nnodeE
+        a = Nod2DOF(anod,ndim) ; 
+            Anod = CN(e,anod) ; 
+            A = Nod2DOF(Anod,ndim) ;         
+        for bnod = 1:nnodeE
+            b = Nod2DOF(anod,ndim) ;
+            Bnod = CN(e,bnod);
+            B = Nod2DOF(Bnod,ndim) ;
             K(A,B) = K(A,B) + Ke(a,b);
         end
    end

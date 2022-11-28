@@ -1,0 +1,374 @@
+GiD Post Results File 1.0 
+GaussPoints "GPset" Elemtype Hexahedra
+Number of Gauss Points: 8
+Nodes not included
+Natural Coordinates: Internal
+End GaussPoints
+Result "Nodal_displacement"  "Load Analysis" 1 Vector OnNodes  
+ComponentNames "X-DISPL" "Y-DISPL" "Z-DISPL"
+Values
+1 NaN NaN NaN
+2 NaN NaN NaN
+3 NaN NaN NaN
+4 NaN NaN NaN
+5 NaN NaN NaN
+6 NaN NaN NaN
+7 NaN NaN NaN
+8 NaN NaN NaN
+9 NaN NaN NaN
+10 NaN NaN NaN
+11 NaN NaN NaN
+12 NaN NaN NaN
+13 NaN NaN NaN
+14 NaN NaN NaN
+15 NaN NaN NaN
+16 NaN NaN NaN
+17 NaN NaN NaN
+18 NaN NaN NaN
+19 NaN NaN NaN
+20 NaN NaN NaN
+21 NaN NaN NaN
+22 NaN NaN NaN
+23 NaN NaN NaN
+24 NaN NaN NaN
+25 NaN NaN NaN
+26 NaN NaN NaN
+27 NaN NaN NaN
+28 NaN NaN NaN
+29 NaN NaN NaN
+30 NaN NaN NaN
+31 NaN NaN NaN
+32 NaN -1088208652.291316 -Inf
+33 0.000000 0.000000 0.000000
+34 0.000000 0.000000 0.000000
+35 0.000000 0.000000 0.000000
+36 0.000000 0.000000 0.000000
+37 0.000000 0.000000 0.000000
+38 0.000000 0.000000 0.000000
+39 0.000000 0.000000 0.000000
+40 0.000000 0.000000 0.000000
+41 0.000000 0.000000 0.000000
+42 0.000000 0.000000 0.000000
+43 0.000000 0.000000 0.000000
+44 0.000000 0.000000 0.000000
+45 0.000000 0.000000 0.000000
+46 0.000000 0.000000 0.000000
+47 0.000000 0.000000 0.000000
+48 0.000000 0.000000 0.000000
+End Values
+Result "Nodal reactions"  "Load Analysis" 1 Vector OnNodes  
+ComponentNames "X-REAC" "Y-REAC" "Z-REAC"
+Values
+1 0.000000 0.000000 0.000000
+2 0.000000 0.000000 0.000000
+3 0.000000 0.000000 0.000000
+4 0.000000 0.000000 0.000000
+5 0.000000 0.000000 0.000000
+6 0.000000 0.000000 0.000000
+7 0.000000 0.000000 0.000000
+8 0.000000 0.000000 0.000000
+9 0.000000 0.000000 0.000000
+10 0.000000 0.000000 0.000000
+11 0.000000 0.000000 0.000000
+12 0.000000 0.000000 0.000000
+13 0.000000 0.000000 0.000000
+14 0.000000 0.000000 0.000000
+15 0.000000 0.000000 0.000000
+16 0.000000 0.000000 0.000000
+17 0.000000 0.000000 0.000000
+18 0.000000 0.000000 0.000000
+19 0.000000 0.000000 0.000000
+20 0.000000 0.000000 0.000000
+21 0.000000 0.000000 0.000000
+22 0.000000 0.000000 0.000000
+23 0.000000 0.000000 0.000000
+24 0.000000 0.000000 0.000000
+25 0.000000 0.000000 0.000000
+26 0.000000 0.000000 0.000000
+27 0.000000 0.000000 0.000000
+28 0.000000 0.000000 0.000000
+29 0.000000 0.000000 0.000000
+30 0.000000 0.000000 0.000000
+31 0.000000 0.000000 0.000000
+32 0.000000 0.000000 0.000000
+33 NaN NaN NaN
+34 NaN NaN NaN
+35 NaN NaN NaN
+36 NaN NaN NaN
+37 NaN NaN NaN
+38 NaN NaN NaN
+39 NaN NaN NaN
+40 NaN NaN NaN
+41 NaN NaN NaN
+42 NaN NaN NaN
+43 NaN NaN NaN
+44 NaN NaN NaN
+45 NaN NaN NaN
+46 NaN NaN NaN
+47 NaN NaN NaN
+48 NaN NaN NaN
+End Values
+Result  "Stress" "Load Analysis" 1 Matrix OnGaussPoints "GPset"
+ComponentNames "Stress XX" "StressYY" "StressZZ" "StressXY" "StressYZ"   "StressXZ"
+Values
+1 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+2 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+3 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+4 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+5 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+6 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+7 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+8 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+9 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+10 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+11 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+12 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+13 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+14 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+15 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+16 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+End Values
+Result  "Strain" "Load Analysis" 1 Matrix OnGaussPoints "GPset"
+ComponentNames "Strain XX" "StrainYY" "StrainZZ" "StrainXY" "StrainYZ"   "StrainXZ"
+Values
+1 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+2 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+3 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+4 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+5 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+6 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+7 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+8 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+9 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+10 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+11 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+12 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+13 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+14 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+15 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+16 NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+ NaN NaN NaN NaN NaN NaN
+End Values

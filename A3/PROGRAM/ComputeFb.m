@@ -1,4 +1,4 @@
-function Fb = ComputeFb(COOR,CN,TypeElement, fNOD) ; 
+function Fb = ComputeFb(COOR,CN,TypeElement, fNOD)
 % This subroutine   returns the  body force    contribution (Fb)    to the % global external force vector. Inputs:   COOR, CN,  TypeElement, fNOD (nnode*ndim x 1):   Body force function at the nodes  of the mesh. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %dbstop('5')

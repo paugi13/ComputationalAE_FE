@@ -37,7 +37,7 @@ React = zeros(size(d)) ;  %  REaction forces  (initialization)
 d(DOFl) = dL ;
 d(DOFr) = dR ;
 
-React(DKOFr) = K(DOFr,DOFl)*dL + K(DOFr,DOFr) - F(DOFr);
+React(DOFr) = K(DOFr,DOFl)*dL + K(DOFr,DOFr)*dR - F(DOFr);
 
 %%%% COmputation of strain and stress vector at each gauss point
 disp('Computation of stress and strains at each Gauss point')
