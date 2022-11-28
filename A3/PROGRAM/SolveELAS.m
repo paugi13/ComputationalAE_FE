@@ -1,5 +1,5 @@
-function [d strainGLO stressGLO  React posgp] = SolveELAS(K,Fb,Ftrac,dR,DOFr,COOR,CN,TypeElement,celasglo,...
-    typePROBLEM,celasgloINV,DATA) ;
+function [d, strainGLO, stressGLO , React, posgp] = SolveELAS(K,Fb,Ftrac,dR,DOFr,COOR,CN,TypeElement,celasglo,...
+    typePROBLEM,celasgloINV,DATA) 
 % This function returns   the (nnode*ndim x 1) vector of nodal displacements (d),
 % as well as the arrays of stresses and strains
 %%% points  (qheatGLO)
@@ -11,9 +11,12 @@ function [d strainGLO stressGLO  React posgp] = SolveELAS(K,Fb,Ftrac,dR,DOFr,COO
 % dR = Vector of prescribed displacements
 % ----------------------
 if nargin == 0
-    load('tmp.mat')
+    load('tmp.mat');
 end
-nnode = size(COOR,1); ndim = size(COOR,2); nelem = size(CN,1); nnodeE = size(CN,2) ;     %
+nnode = size(COOR,1); 
+ndim = size(COOR,2); 
+nelem = size(CN,1); 
+nnodeE = size(CN,2) ;     %
 % Solution of the system of FE equation
 % Right-hand side
 F = Fb + Ftrac ;
@@ -22,15 +25,21 @@ DOFl = 1:nnode*ndim ;
 DOFl(DOFr) = [] ;
 
 
-error('You should implement the solution of the system of equations, as well as the computation of nodal reaction forces')
+% error('You should implement the solution of the system of equations, as well as the computation of nodal reaction forces')
 % To be completed .... 
 % dL =  K^{-1}*(Fl .Klr*dR)    
 % *** 
+dL = K(DOFl,DOFl)\(F(DOFl)-K(DOFl,DOFr)*dR);
+
 d = zeros(nnode*ndim,1) ; % Nodal displacements (initialization)
 React = zeros(size(d)) ;  %  REaction forces  (initialization)
-  
+
+d(DOFl) = dL ;
+d(DOFr) = dR ;
+
+React(DKOFr) = K(DOFr,DOFl)*dL + K(DOFr,DOFr) - F(DOFr);
 
 %%%% COmputation of strain and stress vector at each gauss point
 disp('Computation of stress and strains at each Gauss point')
-[strainGLO stressGLO posgp]= StressStrains(COOR,CN,TypeElement,celasglo,d,typePROBLEM,celasgloINV,DATA) ;
+[strainGLO, stressGLO, posgp]= StressStrains(COOR,CN,TypeElement,celasglo,d,typePROBLEM,celasgloINV,DATA) ;
 
