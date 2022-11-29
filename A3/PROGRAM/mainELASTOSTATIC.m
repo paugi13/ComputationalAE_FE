@@ -1,5 +1,5 @@
-clc
-clear all
+clc;
+clear;
 % Finite Element Program for Elastostatic problems  
 % ECA.
 % Technical University of Catalonia
@@ -22,7 +22,7 @@ NAME_INPUT_DATA = 'BEAM3D' ;  % Name of the mesh file
 
 % SOLVER 
 % --------------------------------------------
-[d strainGLO stressGLO  React posgp]= SolveElastFE(COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
+[d, strainGLO, stressGLO,  React, posgp]= SolveElastFE(COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
     Tnod,CNb,fNOD,Fpnt,typePROBLEM,celasgloINV,DATA)  ; 
 
 % POSTPROCESS
