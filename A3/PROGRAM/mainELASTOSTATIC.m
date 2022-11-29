@@ -17,7 +17,7 @@ NAME_INPUT_DATA = 'BEAM3D' ;  % Name of the mesh file
 %------------------------------------------------------
 
 % PREPROCESS  
-[COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
+[COOR,CN,TypeElement,TypeElementB, celasglo, DOFr,dR,...  
     Tnod,CNb,fNOD,Fpnt,NameFileMesh,typePROBLEM,celasgloINV,DATA] = ReadInputDataFile(NAME_INPUT_DATA)  ; 
 
 % SOLVER 

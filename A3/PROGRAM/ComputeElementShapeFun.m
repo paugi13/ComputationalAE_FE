@@ -1,4 +1,4 @@
-function [weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand) ;
+function [weig,posgp,shapef,dershapef] = ComputeElementShapeFun(TypeElement,nnodeE,TypeIntegrand) 
 % This function returns, for each "TypeElement" and 'TypeIntegrand'
 % (K/RHS)*
 % weig = Vector of Gauss weights (1xngaus)
