@@ -1,4 +1,4 @@
-function [errorVector, errorDerVector] = ErrorCalculator(nelem, coord, d)
+function [e, eDer] = ErrorCalculator(nelem, coord, d)
 
 %% Element function
 w = 1;
@@ -18,6 +18,8 @@ fPh = zeros(size(N,1),1);
 syms x
 load('exactSolExp.mat');
 
+e = 0;
+eDer = 0;
 % error calculator
 for i=1:nelem
     wcoord = [coord(1,i); coord(1,(i+1))];
@@ -29,11 +31,10 @@ for i=1:nelem
         fPh(j,1) = subs(exactSol, x, xPh);
         sum = sum + (w*(fPh(j,1)-N(j,:)*de))^2;
     end
-    errorVector(i,1) = he/2*sum;
+    e = e + he/2*sqrt(sum);
 end
    
 % error's derivative
-
 derExactSol = diff(exactSol, x);
 
 for i=1:nelem
@@ -47,7 +48,7 @@ for i=1:nelem
         fPh(j,1) = subs(derExactSol, x, xPh);
         sum = sum + (w*(fPh(j,1)-B*de))^2;
     end
-    errorDerVector(i,1) = he/2*sum;
+    eDer = eDer + he/2*sqrt(sum);
 end
 
 

@@ -5,7 +5,7 @@
 % % OF NODES FOR IMPOSING BOUNDARY CONDITIONS
 % %--------------------------------------------------------------------------
 
-MeshNumber = 1;
+MeshNumber = 4;
 MeshNumberStr = num2str(MeshNumber);
 NameFileMeshDATA = join(['MESH', MeshNumberStr]);   %  This is the name of GIDs project
 % wherein the mesh has been constructed. To generate the files needed by matlab,

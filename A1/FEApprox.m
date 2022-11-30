@@ -17,9 +17,9 @@ error = zeros(1, length(n));
 errorDer = zeros(1, length(n));
 
 for i = 1:length(n)
-[errorVector, errorDerVector] = ErrorCalculator(n(i), coord(i, 1:(n(i)+1)), u(i, 1:(n(i)+1)));
-error(1, i) = sqrt(max(errorVector));
-errorDer(1, i) = sqrt(max(errorDerVector));
+[error(i), errorDer(i)] = ErrorCalculator(n(i), coord(i, 1:(n(i)+1)), u(i, 1:(n(i)+1)));
+% error(1, i) = max(errorVector);
+% errorDer(1, i) = max(errorDerVector);
 end
 
 %% Post-process
@@ -80,11 +80,6 @@ ylabel('u (m)');
 grid on
 title('nEl = 40');
 hold off
-
-
-
-
-
 
 % element size vector
 

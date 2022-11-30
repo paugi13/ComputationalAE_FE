@@ -1,7 +1,6 @@
 function ValidationTest(F, React, COOR)
 % Function to validate obtained results by checking reations values. Both
 % Forces and moments are checked.
-
 % COOR = [x1 y1 z1
 %       x2 y2 z2 ...]
 % F = [F11 F12 F13 F21 F22 F23 ...]
@@ -49,10 +48,14 @@ end
 % Check results
 if Fx + Rx > ToL || Fy + Ry > ToL || Fz + Rz > ToL
     error('Forces are not compensated');
+else
+    disp('Reaction forces are correctly calculated.');
 end
 
 if abs(MAx(1) + Mx(1)) > ToL || abs(MAy(2) + My(2)) > ToL || abs(MAz(3) + ...
         Mz(3)) > ToL
     error('Moments are not compensated');
+else
+    disp('Reaction moments are calculated correctly. System is static.')
 end
    
