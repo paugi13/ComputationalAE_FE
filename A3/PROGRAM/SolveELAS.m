@@ -39,6 +39,8 @@ d(DOFr) = dR ;
 
 React(DOFr) = K(DOFr,DOFl)*dL + K(DOFr,DOFr)*dR - F(DOFr);
 
+ValidationTest(F, React, COOR);
+
 %%%% COmputation of strain and stress vector at each gauss point
 disp('Computation of stress and strains at each Gauss point')
 [strainGLO, stressGLO, posgp]= StressStrains(COOR,CN,TypeElement,celasglo,d,typePROBLEM,celasgloINV,DATA) ;
