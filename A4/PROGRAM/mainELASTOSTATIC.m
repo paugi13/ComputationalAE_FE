@@ -22,8 +22,10 @@ NAME_INPUT_DATA = 'BEAM3D' ;  % Name of the mesh file
 
 % SOLVER 
 % --------------------------------------------
-[d, strainGLO, stressGLO,  React, posgp]= SolveElastFE(COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
+[d, strainGLO, stressGLO,  React, posgp, K, M]= SolveElastFE(COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
     Tnod,CNb,fNOD,Fpnt,typePROBLEM,celasgloINV,DATA)  ; 
+
+save('P4Modes', 'COOR', 'CN', 'posgp','TypeElement', 'K', 'M', 'NameFileMesh');
 
 % POSTPROCESS
 % --------------------------------------------
