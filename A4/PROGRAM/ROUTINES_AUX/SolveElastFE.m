@@ -1,5 +1,5 @@
-function[d, strainGLO, stressGLO,  React, posgp, K, M]  = SolveElastFE(COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
-    Tnod,CNb,fNOD,Fpnt,typePROBLEM,celasgloINV,DATA) 
+function[d, strainGLO, stressGLO,  React, posgp, K, M, DOFl]  = SolveElastFE(COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
+    Tnod,CNb,fNOD,Fpnt,typePROBLEM,celasgloINV,DATA, densglo) 
 
 %%% This function returns the (nnode*ndim x 1) vector of nodal displacements (d),
 %%% as well as the arrays containing  the stresses (stressGLO) and strains (strainGLO) at all gauss
@@ -61,7 +61,7 @@ Ftrac = FtracCOMP(COOR,CNb,TypeElementB,Fpnt,Tnod);
 
 % D) Solving for the vector of unknown displacements 
 disp('Solving...')
-[d, strainGLO, stressGLO,  React, posgp] = SolveELAS(K,Fb,Ftrac,dR,DOFr,COOR,CN,TypeElement,celasglo,typePROBLEM,celasgloINV,DATA) ; 
+[d, strainGLO, stressGLO,  React, posgp, DOFl] = SolveELAS(K,Fb,Ftrac,dR,DOFr,COOR,CN,TypeElement,celasglo,typePROBLEM,celasgloINV,DATA) ; 
 
 
 

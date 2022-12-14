@@ -1,5 +1,5 @@
 function [COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
-    Tnod,CNb,fNOD,Fpnt,NameFileMesh,typePROBLEM,celasgloINV,DATA]  = ReadInputDataFile(NAME_INPUT_DATA) ; 
+    Tnod,CNb,fNOD,Fpnt,NameFileMesh,typePROBLEM,celasgloINV,DATA, densglo]  = ReadInputDataFile(NAME_INPUT_DATA) ; 
 
 
 % OUTPUTS 

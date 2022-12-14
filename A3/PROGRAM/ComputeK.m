@@ -17,6 +17,7 @@ TypeIntegrand = 'K';
 % Assembly of matrix K
 % ----------------
 K = sparse([],[],[],nnode*ndim,nnode*ndim,nnodeE*ndim*nelem) ;
+% K = zeros(nnode*ndim,nnode*ndim,nnodeE*ndim*nelem);
 for e = 1:nelem
     celas = celasglo(:,:,e) ;  % Stiffness matrix of element "e"
     CNloc = CN(e,:) ;   % Coordinates of the nodes of element "e"

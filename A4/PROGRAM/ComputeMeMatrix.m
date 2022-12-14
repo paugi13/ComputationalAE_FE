@@ -14,7 +14,7 @@ for  g = 1:ngaus
     % Jacobian Matrix 
     Je = Xe*BeXi' ; 
     % JAcobian 
-    detJe = det(Je) ;    
-    %
-    Me = Me + weig(g)*detJe*densM*(Ne')*Ne; 
+    detJe = det(Je) ;
+    NeT = Ne.';
+    Me = Me + weig(g)*detJe*(densM*NeT*Ne); 
 end

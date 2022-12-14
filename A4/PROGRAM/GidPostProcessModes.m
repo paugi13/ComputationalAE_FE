@@ -1,4 +1,4 @@
-function GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,~,DOFl) 
+function GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,DOFl) 
 % Post-processing of results using GID  (vibration modes)
 %dbstop('4')
 if nargin==0

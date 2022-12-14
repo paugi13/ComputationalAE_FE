@@ -18,7 +18,7 @@ TypeIntegrand = 'K';
 % ----------------
 M = sparse([],[],[],nnode*ndim,nnode*ndim,nnodeE*ndim*nelem) ;
 for e = 1:nelem
-    densM = densglo(:,:,e) ;  % Stiffness matrix of element "e"
+    densM = densglo(e) ;  % Stiffness matrix of element "e"
     CNloc = CN(e,:) ;   % Coordinates of the nodes of element "e"
     Xe = COOR(CNloc,:)' ;     % Computation of elemental stiffness matrix
     Me = ComputeMeMatrix(densM,weig, shapef, dershapef,Xe);

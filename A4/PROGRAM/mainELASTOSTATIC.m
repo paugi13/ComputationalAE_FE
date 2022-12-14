@@ -18,15 +18,16 @@ NAME_INPUT_DATA = 'BEAM3D' ;  % Name of the mesh file
 
 % PREPROCESS  
 [COOR,CN,TypeElement,TypeElementB, celasglo, DOFr,dR,...  
-    Tnod,CNb,fNOD,Fpnt,NameFileMesh,typePROBLEM,celasgloINV,DATA] = ReadInputDataFile(NAME_INPUT_DATA)  ; 
+    Tnod,CNb,fNOD,Fpnt,NameFileMesh,typePROBLEM,celasgloINV,DATA, densglo] = ReadInputDataFile(NAME_INPUT_DATA)  ; 
 
 % SOLVER 
 % --------------------------------------------
-[d, strainGLO, stressGLO,  React, posgp, K, M]= SolveElastFE(COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
-    Tnod,CNb,fNOD,Fpnt,typePROBLEM,celasgloINV,DATA)  ; 
+[d, strainGLO, stressGLO,  React, posgp, K, M, DOFl]= SolveElastFE(COOR,CN,TypeElement,TypeElementB, celasglo,  DOFr,dR,...  
+    Tnod,CNb,fNOD,Fpnt,typePROBLEM,celasgloINV,DATA, densglo)  ; 
 
-save('P4Modes', 'COOR', 'CN', 'posgp','TypeElement', 'K', 'M', 'NameFileMesh');
+save('P4ModesCase1', 'COOR', 'CN', 'posgp','TypeElement', 'K', 'M', 'NameFileMesh',...
+    'd', 'DOFl');
 
 % POSTPROCESS
 % --------------------------------------------
-GidPostProcess(COOR,CN,TypeElement,d,strainGLO, stressGLO,  React,NAME_INPUT_DATA,posgp,NameFileMesh,DATA);
+% GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,DOFl) 
