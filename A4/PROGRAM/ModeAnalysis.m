@@ -8,6 +8,8 @@ addpath('ROUTINES_AUX');
 % Load analysis data
 load('P4ModesCase1');
 
-MODES = 3;
+neig = 25;
 
-GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,DOFl)
+[MODES, FREQ] = UndampedFREQ(M, K, neig);
+
+GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,DOFl);
