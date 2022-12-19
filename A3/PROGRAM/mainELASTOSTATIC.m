@@ -27,4 +27,4 @@ NAME_INPUT_DATA = 'BEAM3D' ;  % Name of the mesh file
 
 % POSTPROCESS
 % --------------------------------------------
-% GidPostProcess(COOR,CN,TypeElement,d,strainGLO, stressGLO,  React,NAME_INPUT_DATA,posgp,NameFileMesh,DATA);
+GidPostProcess(COOR,CN,TypeElement,d,strainGLO, stressGLO,  React,NAME_INPUT_DATA,posgp,NameFileMesh,DATA);

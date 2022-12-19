@@ -64,5 +64,4 @@ disp('Solving...')
 [d, strainGLO, stressGLO,  React, posgp, DOFl] = SolveELAS(K,Fb,Ftrac,dR,DOFr,COOR,CN,TypeElement,celasglo,typePROBLEM,celasgloINV,DATA) ; 
 
 
-
 save('INFO_FE.mat','React','COOR','DOFr')

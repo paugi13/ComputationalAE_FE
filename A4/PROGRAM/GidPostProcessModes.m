@@ -5,7 +5,6 @@ if nargin==0
     load('tmp.mat')
 end
 
-load('P4Modes');
 
 % Name of the mesh file 
 NameFile_msh = ['GIDPOST/','MODES','_',NameFileMesh(1:end-4),'.msh'] ; 
