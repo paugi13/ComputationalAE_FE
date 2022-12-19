@@ -17,7 +17,7 @@ GidMesh2DFE(NameFile_msh,COOR,CN,'MODES',MaterialType,TypeElement);
 % Writing results file
 %nMODES =size   ; 
 MODESplot = zeros(size(COOR,1)*size(COOR,2),size(MODES,2)) ; 
-MODESplot(DOFl,:) = MODES(DOFl, :) ; 
+MODESplot(DOFl,:) = MODES; 
 GidResults2DFE_modes(NameFile_res,COOR,CN,TypeElement,MODESplot,posgp);
 
 cddd = cd ; 

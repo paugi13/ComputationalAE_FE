@@ -10,6 +10,8 @@ load('P4ModesCase1');
 
 neig = 25;
 
-[MODES, FREQ] = UndampedFREQ(M, K, neig);
+Mll = M(DOFl, DOFl);
+Kll = K(DOFl, DOFl);
+[MODES, FREQ] = UndampedFREQ(Mll, Kll, neig);
 
 GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,DOFl);
