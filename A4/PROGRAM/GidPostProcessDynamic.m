@@ -1,4 +1,4 @@
-function GidPostProcessDynamic(COOR,CN,TypeElement,DISP,NAME_INPUT_DATA,posgp,NameFileMesh,t); 
+function GidPostProcessDynamic(COOR,CN,TypeElement,DISP,NAME_INPUT_DATA,posgp,NameFileMesh,t) 
 % Post-processing of results using GID  
 %dbstop('4')
 if nargin==0
