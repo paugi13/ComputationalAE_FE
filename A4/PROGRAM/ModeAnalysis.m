@@ -6,7 +6,7 @@ close all;
 addpath('ROUTINES_AUX');
 
 % Load analysis data
-load('P4ModesCase1');
+load('P4ModesCase2');
 
 % Calculate first 25 modes
 neig = 25;
@@ -42,7 +42,7 @@ for j = 1:size(t, 1)
         qi0Der = MODES(:, i)'*M*dDer;
         freqBar = FREQ(i)*sqrt(1-xi^2);
         % First parenthesis
-        f1 = qi0*cos(freqBar*t(j)) + (qi0Der + xi*FREQ(i)*qi0/freqBar)*sin(freqBar*t(j));
+        f1 = qi0*cos(freqBar*t(j)) + ((qi0Der + xi*FREQ(i)*qi0)/freqBar)*sin(freqBar*t(j));
         fT = exp(-xi*FREQ(i)*t(j))*f1;
         dTotal = dTotal + MODES(:, i)*fT;
     end
@@ -53,5 +53,5 @@ end
 % total matrix including restricted nodes must be assembled.
 DISP = zeros(npt3, nstep);
 DISP(DOFl, :) = dTimeVector;
-NAME_INPUT_DATA = 'DYN-sol';
+NAME_INPUT_DATA = 'DYN-sol2';
 GidPostProcessDynamic(COOR,CN,TypeElement,DISP,NAME_INPUT_DATA,posgp,NameFileMesh,t);

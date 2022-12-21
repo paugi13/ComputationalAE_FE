@@ -56,33 +56,33 @@ DIRICHLET(icond).PRESCRIBED_DISP = {[0],[0],[0]} ;  % Constraints x,y and z dire
 %  5.1) NEUMANN COND. Loads per unit surface
 % ------------------------------------------------------------------
 
-icond= 1 ;
-NEUMANN(icond).NUMBER_SURFACE = 2 ;  % Surface on which the load is applied
-NEUMANN(icond).FORCE_PER_UNIT_SURFACE= [0,-0.5,0] ; % Force per unit surface (units determined by
+% icond= 1 ;
+% NEUMANN(icond).NUMBER_SURFACE = 2 ;  % Surface on which the load is applied
+% NEUMANN(icond).FORCE_PER_UNIT_SURFACE= [0,-0.5,0] ; % Force per unit surface (units determined by
 
 % the units of the  Young's Modulus, and the units of length employed in GID). In this case, 500 KN/m2
 % = 0.5 MPa
 
-% icond= 1 ;
-% NEUMANN(icond).NUMBER_SURFACE = 2 ; 
-% NEUMANN(icond).FORCE_PER_UNIT_SURFACE= [0,0,0] ;
+icond= 1 ;
+NEUMANN(icond).NUMBER_SURFACE = 2 ; 
+NEUMANN(icond).FORCE_PER_UNIT_SURFACE= [0,0,0] ;
 
-iforce  = 1; % Number of force
-POINT_FORCE(iforce).NODE = 1;
-POINT_FORCE(iforce).VALUE = [0,0,0];    % Young's Modulus Units*(Length units)^2. In this case, MN
+% iforce  = 1; % Number of force
+% POINT_FORCE(iforce).NODE = 1;
+% POINT_FORCE(iforce).VALUE = [0,0,0];    % Young's Modulus Units*(Length units)^2. In this case, MN
 
 % % -------------------------------------------
 % % 5.2) POINT FORCES (FORCES APPLIED ON NODES)
 % % --------------------------------------------
-% if MeshNumber == 4
-% iforce  = 1; % Number of force
-% POINT_FORCE(iforce).NODE = 190;
-% POINT_FORCE(iforce).VALUE = [0,0,-0.4];    % Young's Modulus Units*(Length units)^2. In this case, MN
-% 
-% iforce = 2;
-% POINT_FORCE(iforce).NODE = 33;
-% POINT_FORCE(iforce).VALUE = [0,0,0.4]; 
-% end
+if MeshNumber == 4
+iforce  = 1; % Number of force
+POINT_FORCE(iforce).NODE = 190;
+POINT_FORCE(iforce).VALUE = [0,0,-0.4];    % Young's Modulus Units*(Length units)^2. In this case, MN
+
+iforce = 2;
+POINT_FORCE(iforce).NODE = 33;
+POINT_FORCE(iforce).VALUE = [0,0,0.4]; 
+end
 % iforce  = 2; % Number of force
 % POINT_FORCE(iforce).NODE = 1;
 % POINT_FORCE(iforce).VALUE = [0,0,0];    % Young's Modulus Units*(Length units)^2. In this case, MN
