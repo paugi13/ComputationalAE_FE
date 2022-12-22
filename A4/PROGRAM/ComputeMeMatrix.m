@@ -1,7 +1,7 @@
-function Me = ComputeMeMatrix(densM,weig, shapef, dershapef,Xe)
-% Given  % celas: Elasticity Matrix
+function Me = ComputeMeMatrix(dens,weig, shapef, dershapef,Xe)
+% Given  % dens: Element density
 % weig :   Vector of Gauss weights (1xngaus), % dershapef:   Array with the derivatives of shape functions, with respect to  element coordinates (ndim x nnodeE x ngaus),  Xe: Global coordinates of the nodes of the element,  
-% this function returns the element stiffness matrix Ke
+% this function returns the element mass matrix Me
 ndim = size(Xe,1) ; ngaus = length(weig) ; nnodeE = size(Xe,2)  ;  
 Me = zeros(nnodeE*ndim,nnodeE*ndim) ; 
 for  g = 1:ngaus
@@ -13,8 +13,8 @@ for  g = 1:ngaus
     Ne = StransfN(NeSCL,ndim) ; 
     % Jacobian Matrix 
     Je = Xe*BeXi' ; 
-    % JAcobian 
+    % Jacobian 
     detJe = det(Je) ;
     NeT = Ne.';
-    Me = Me + weig(g)*detJe*(densM*NeT*Ne); 
+    Me = Me + weig(g)*detJe*(dens*NeT*Ne); 
 end

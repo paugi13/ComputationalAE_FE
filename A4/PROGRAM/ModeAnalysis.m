@@ -34,11 +34,15 @@ t = zeros(nstep, 1);
 t(:, 1) = linspace(0, totalT, nstep);
 
 dTimeVector = zeros(length(DOFl), nstep);
+qi0Vector = zeros(1, neig);
 for j = 1:size(t, 1)
     dTotal = zeros(length(DOFl),1);
     disp(['time step = ', num2str(j)]);
     for i = 1:neig
         qi0 = MODES(:, i)'*M*d;
+        if j == 1
+            qi0Vector(i) = qi0;
+        end
         qi0Der = MODES(:, i)'*M*dDer;
         freqBar = FREQ(i)*sqrt(1-xi^2);
         % First parenthesis
@@ -55,3 +59,15 @@ DISP = zeros(npt3, nstep);
 DISP(DOFl, :) = dTimeVector;
 NAME_INPUT_DATA = 'DYN-sol2';
 GidPostProcessDynamic(COOR,CN,TypeElement,DISP,NAME_INPUT_DATA,posgp,NameFileMesh,t);
+
+% Visualize mode amplitudes
+qi0Vector = abs(qi0Vector);
+fig1 = figure(1);
+hold on
+bar(qi0Vector);
+xlabel('Mode');
+ylabel('Amplitude');
+title('Initial modes amplitudes');
+grid on
+hold off
+
