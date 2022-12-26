@@ -66,8 +66,7 @@ fig1 = figure(1);
 hold on
 bar(qi0Vector);
 xlabel('Mode');
-ylabel('Amplitude');
-title('Initial modes amplitudes');
+ylabel('Amplitude $q_i^0$');
 grid on
 hold off
 
