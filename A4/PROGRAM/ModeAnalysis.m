@@ -6,7 +6,7 @@ close all;
 addpath('ROUTINES_AUX');
 
 % Load analysis data
-load('P4ModesCase2');
+load('P4ModesCase1');
 
 % Calculate first 25 modes
 neig = 25;
@@ -17,6 +17,7 @@ M = M(DOFl, DOFl);
 K = K(DOFl, DOFl);
 d = d(DOFl);
 [MODES, FREQ] = UndampedFREQ(M, K, neig);
+FREQhz = FREQ/(2*pi);
 
 % GID postprocess
 GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,DOFl);
@@ -53,13 +54,6 @@ for j = 1:size(t, 1)
     dTimeVector(:, j) = dTotal;
 end
 
-% dTimeVector -> displacements of free nodes.
-% total matrix including restricted nodes must be assembled.
-DISP = zeros(npt3, nstep);
-DISP(DOFl, :) = dTimeVector;
-NAME_INPUT_DATA = 'DYN-sol2';
-GidPostProcessDynamic(COOR,CN,TypeElement,DISP,NAME_INPUT_DATA,posgp,NameFileMesh,t);
-
 % Visualize mode amplitudes
 qi0Vector = abs(qi0Vector);
 fig1 = figure(1);
@@ -69,4 +63,12 @@ xlabel('Mode');
 ylabel('Amplitude $q_i^0$');
 grid on
 hold off
+
+% dTimeVector -> displacements of free nodes.
+% total matrix including restricted nodes must be assembled.
+DISP = zeros(npt3, nstep);
+DISP(DOFl, :) = dTimeVector;
+NAME_INPUT_DATA = 'DYN-sol1';
+GidPostProcessDynamic(COOR,CN,TypeElement,DISP,NAME_INPUT_DATA,posgp,NameFileMesh,t);
+
 
