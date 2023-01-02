@@ -26,7 +26,7 @@ GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,DOFl);
 % Initial velocity condition
 dDer = zeros(length(DOFl), 1);
 
-xi = 0.01;      % Damping factor
+xi = 0;      % Damping factor
 T1 = 2*pi/FREQ(1);
 m = 40;
 totalT = m*T1;

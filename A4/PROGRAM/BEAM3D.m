@@ -24,7 +24,7 @@ typePROBLEM ='3D' ;
 % -----------------------------------------------------------------------------------
 imat =1 ; % Index material
 % Elasticity matrix
-E = 70000e6  ; %  MPa, Young's modulus
+E = 70000  ; %  MPa, Young's modulus
 nu = 0.3; % Poisson's coefficient
 % Compliance matrix for an isotropic materials (with all entries, 3D)
 % See slides, page 23.
@@ -55,7 +55,7 @@ DIRICHLET(icond).PRESCRIBED_DISP = {[0],[0],[0]} ;  % Constraints x,y and z dire
 % --------------------------------------------------------------------
 %  5.1) NEUMANN COND. Loads per unit surface
 % ------------------------------------------------------------------
-% 
+
 icond= 1 ;
 NEUMANN(icond).NUMBER_SURFACE = 2 ;  % Surface on which the load is applied
 NEUMANN(icond).FORCE_PER_UNIT_SURFACE= [0,-0.5,0] ; % Force per unit surface (units determined by
@@ -76,11 +76,11 @@ POINT_FORCE(iforce).VALUE = [0,0,0];    % Young's Modulus Units*(Length units)^2
 % if MeshNumber == 4
 % iforce  = 1; % Number of force
 % POINT_FORCE(iforce).NODE = 190;
-% POINT_FORCE(iforce).VALUE = [0,0,-0.4];    % Young's Modulus Units*(Length units)^2. In this case, MN
+% POINT_FORCE(iforce).VALUE = [0,0,-0.4e6];    % Young's Modulus Units*(Length units)^2. In this case, MN
 % 
 % iforce = 2;
 % POINT_FORCE(iforce).NODE = 33;
-% POINT_FORCE(iforce).VALUE = [0,0,0.4]; 
+% POINT_FORCE(iforce).VALUE = [0,0,0.4e6]; 
 % end
 
 
@@ -95,7 +95,7 @@ fBODY = 0 ;  % Constant value per unit volum MN/m^3.
 
 
 % DENSITY (THIS IS FOR ASSIGNMENT 4)
-dens0 = 2.7;   %
+dens0 = 2700e-6;   %
 
 %
 DATA.PRINT_AVERAGE_STRESSES_ON_ELEMENTS = 0  ; % Print volumetric average of stresses at each element
