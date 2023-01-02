@@ -27,5 +27,5 @@ NAME_INPUT_DATA = 'BEAM3D' ;  % Name of the mesh file
 
 GidPostProcess(COOR,CN,TypeElement,d,strainGLO, stressGLO,  React,NAME_INPUT_DATA,posgp,NameFileMesh,DATA);
 
-save('P4ModesCase2', 'COOR', 'CN', 'posgp','TypeElement', 'K', 'M', 'NameFileMesh',...
+save('P4ModesCase1', 'COOR', 'CN', 'posgp','TypeElement', 'K', 'M', 'NameFileMesh',...
     'd', 'DOFl');

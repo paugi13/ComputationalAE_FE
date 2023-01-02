@@ -29,7 +29,8 @@ DOFl(DOFr) = [] ;
 % To be completed .... 
 % dL =  K^{-1}*(Fl .Klr*dR)    
 % *** 
-dL = K(DOFl,DOFl)\(F(DOFl)-K(DOFl,DOFr)*dR);
+Fl = F(DOFl);
+dL = K(DOFl,DOFl)\(Fl-K(DOFl,DOFr)*dR);
 
 d = zeros(nnode*ndim,1) ; % Nodal displacements (initialization)
 React = zeros(size(d)) ;  %  REaction forces  (initialization)
