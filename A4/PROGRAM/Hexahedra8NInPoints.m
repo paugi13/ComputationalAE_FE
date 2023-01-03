@@ -1,9 +1,9 @@
 function [weig,posgp,shapef,dershapef] = Hexahedra8NInPoints
 
 weig = [1 1 1 1 1 1 1 1];
-posgp = 1/sqrt(3)*[-1 1 1 -1 -1 1 1 -1
-                -1 -1 1 1 -1 -1 1 1
-                -1 -1 -1 -1 1 1 1 1];
+posgp = 1/sqrt(3)*[-1  1  1 -1 -1  1 1 -1
+                   -1 -1  1  1 -1 -1 1  1
+                   -1 -1 -1 -1  1  1 1  1];
 ndim = 3;
 nnodeE = 8;
 ngaus = length(weig);
