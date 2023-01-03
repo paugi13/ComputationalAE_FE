@@ -6,7 +6,8 @@ close all;
 addpath('ROUTINES_AUX');
 
 % Load analysis data
-load('P4ModesCase2');
+name = 'P4ModesCase2'; 
+load(name);
 
 % Calculate first 25 modes
 neig = 25;
@@ -25,12 +26,17 @@ GidPostProcessModes(COOR,CN,TypeElement,MODES,posgp,NameFileMesh,DOFl);
 %% Dynamic response analysis
 % Initial velocity condition
 dDer = zeros(length(DOFl), 1);
-
 xi = 0;      % Damping factor
-T1 = 2*pi/FREQ(1);
-
 m = 40;
-totalT = m*T1;
+switch name
+    case 'P4ModesCase1'
+        T1 = 2*pi/FREQ(1);
+        totalT = m*T1;
+    case 'P4ModesCase2'
+        T1 = 2*pi/FREQ(5);
+        totalT = m*T1;
+end
+
 nstep = 500;
 t = linspace(0, totalT, nstep);
 t = t';
